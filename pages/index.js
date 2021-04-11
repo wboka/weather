@@ -9,6 +9,11 @@ let possibleAddresses = [];
 class Home extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			address: '1600 Pennsylvania Ave, Washington, DC',
+			possibleAddresses: []
+		}
 	}
 
 	render() {
