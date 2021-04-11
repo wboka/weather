@@ -7,6 +7,10 @@ let address = '1600 Pennsylvania Ave, Washington, DC';
 let possibleAddresses = [];
 
 class Home extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
 	render() {
 		return (
 			<div>
