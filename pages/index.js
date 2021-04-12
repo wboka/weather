@@ -24,6 +24,8 @@ class Home extends React.Component {
 	}
 
 	getLocations() {
+		if (!this.state.address) return;
+
 		fetch(`/api/location/${encodeURI(this.state.address)}`)
 			.then((res) => res.json())
 			.then((data) => {
