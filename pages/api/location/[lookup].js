@@ -1,4 +1,5 @@
-const baseURL = 'https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?benchmark=2020&format=json&address=';
+const baseURL =
+	"https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?benchmark=2020&format=json&address=";
 
 export default async (req, res) => {
 	const locationLookup = await fetch(`${baseURL}${req.query.lookup}`);

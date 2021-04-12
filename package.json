@@ -1,15 +1,21 @@
 {
-  "name": "weather",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "10.1.3",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
-  }
+	"name": "weather",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"build": "next build",
+		"dev": "next dev",
+		"format": "prettier --write .",
+		"start": "next start"
+	},
+	"dependencies": {
+		"next": "10.1.3",
+		"react": "17.0.2",
+		"react-dom": "17.0.2"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^12.1.1",
+		"@commitlint/config-conventional": "^12.1.1",
+		"prettier": "^2.2.1"
+	}
 }
