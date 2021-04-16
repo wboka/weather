@@ -52,23 +52,23 @@ class Weather extends React.Component {
 
 				<h2>Daily Forecast</h2>
 
-				<ul>
+				<div className="flex flex-wrap">
 					{this.state.dailyForecast.periods
 						? this.state.dailyForecast.periods.map((f) => {
-								return <WeatherInfo info={f} />;
+								return <WeatherInfo key={f.name} info={f} />;
 						  })
 						: null}
-				</ul>
+				</div>
 
 				<h2>Hourly Forecast</h2>
 
-				<ul>
+				<div className="flex flex-wrap">
 					{this.state.hourlyForecast.periods
 						? this.state.hourlyForecast.periods.map((f) => {
-								return <WeatherInfo info={f} />;
+								return <WeatherInfo key={f.number} info={f} />;
 						  })
 						: null}
-				</ul>
+				</div>
 			</main>
 		);
 	}
