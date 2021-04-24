@@ -1,5 +1,5 @@
 import React from "react";
-import Head from "next/head";
+import Header from "../../../components/Header";
 import Link from "next/link";
 
 import WeatherInfo from "../../../components/weatherInfo";
@@ -39,10 +39,7 @@ class Weather extends React.Component {
 	render() {
 		return (
 			<main>
-				<Head>
-					<title>{this.state.location} - Just the Weather</title>
-					<link rel="icon" href="/favicon.ico" />
-				</Head>
+				<Header title={this.state.location} />
 
 				<Link href="/">
 					<a>Back to main</a>
