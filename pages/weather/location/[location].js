@@ -52,7 +52,7 @@ class Weather extends React.Component {
 
 				<h2>Daily Forecast</h2>
 
-				<div className="flex flex-wrap">
+				<div>
 					{this.state.dailyForecast.periods
 						? this.state.dailyForecast.periods.map((f) => {
 								return <WeatherInfo key={f.name} info={f} />;
@@ -62,7 +62,7 @@ class Weather extends React.Component {
 
 				<h2>Hourly Forecast</h2>
 
-				<div className="flex flex-wrap">
+				<div>
 					{this.state.hourlyForecast.periods
 						? this.state.hourlyForecast.periods.map((f) => {
 								return <WeatherInfo key={f.number} info={f} />;

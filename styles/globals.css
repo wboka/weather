@@ -9,6 +9,7 @@ body {
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 14px;
+	overflow-wrap: break-word;
 }
 
 main,
@@ -85,20 +86,26 @@ input[type="button"]:focus {
 
 .flex {
 	display: flex;
+	flex-direction: column;
 }
 
-.flex-wrap {
-	flex-wrap: wrap;
+.flex > * {
+	vertical-align: middle;
+	padding: 1em;
+	flex: 1 0 auto;
 }
 
 .weather-info {
 	text-align: center;
-	width: 100%;
 }
 
-.weather-info .wrapper {
-	margin: 0.5em;
-	padding: 0 0.5em;
+.forecast, .wind {
+	color: #1e1e1e;
+}
+
+.temperature {
+	font-size: 2.5em;
+	font-weight: 500;
 }
 
 /* Larger than mobile */
@@ -112,8 +119,8 @@ input[type="button"]:focus {
 		font-size: 16px;
 	}
 
-	.weather-info {
-		width: 50%;
+	.flex {
+		flex-direction: row;
 	}
 }
 
@@ -123,10 +130,6 @@ input[type="button"]:focus {
 	body {
 		font-size: 18px;
 	}
-
-	.weather-info {
-		width: 33%;
-	}
 }
 
 /* Larger than desktop */
@@ -134,10 +137,6 @@ input[type="button"]:focus {
 	html,
 	body {
 		font-size: 20px;
-	}
-
-	.weather-info {
-		width: 25%;
 	}
 }
 
