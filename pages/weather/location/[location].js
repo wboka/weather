@@ -1,6 +1,8 @@
 import React from "react";
 import Header from "../../../components/Header";
 import Link from "next/link";
+import getWeatherByLocation from "../../../utils/weather";
+import getLocationByLookup from "../../../utils/location";
 
 import WeatherInfo from "../../../components/weatherInfo";
 
@@ -22,12 +24,11 @@ class Weather extends React.Component {
 		);
 		const locationData = await locationResponse.json();
 
-		const weatherResponse = await fetch(
-			`/api/weather/${encodeURI(
+		const weatherData = await getWeatherByLocation(
+			`${encodeURI(
 				locationData.addressMatches[0].coordinates.y.toFixed(4)
 			)},${encodeURI(locationData.addressMatches[0].coordinates.x.toFixed(4))}`
 		);
-		const weatherData = await weatherResponse.json();
 
 		this.setState((state, props) => ({
 			dailyForecast: weatherData.dailyForecast,
@@ -52,11 +53,13 @@ class Weather extends React.Component {
 				<a href="#hourly">Go to Hourly</a>
 
 				<div>
-					{this.state.dailyForecast.periods
-						? this.state.dailyForecast.periods.map((f) => {
-								return <WeatherInfo key={f.name} info={f} />;
-						  })
-						: <p>Getting daily forecast...</p>}
+					{this.state.dailyForecast.periods ? (
+						this.state.dailyForecast.periods.map((f) => {
+							return <WeatherInfo key={f.name} info={f} />;
+						})
+					) : (
+						<p>Getting daily forecast...</p>
+					)}
 				</div>
 
 				<a href="#top">Back to Top</a>
@@ -66,11 +69,13 @@ class Weather extends React.Component {
 				<a href="#daily">Go to Daily</a>
 
 				<div>
-					{this.state.hourlyForecast.periods
-						? this.state.hourlyForecast.periods.map((f) => {
-								return <WeatherInfo key={f.number} info={f} />;
-						  })
-						: <p>Getting hourly forecast...</p>}
+					{this.state.hourlyForecast.periods ? (
+						this.state.hourlyForecast.periods.map((f) => {
+							return <WeatherInfo key={f.number} info={f} />;
+						})
+					) : (
+						<p>Getting hourly forecast...</p>
+					)}
 				</div>
 			</main>
 		);

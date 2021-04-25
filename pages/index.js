@@ -28,7 +28,7 @@ class Home extends React.Component {
 
 	getFavorites() {
 		this.setState((state, props) => ({
-			favorites: JSON.parse(localStorage.getItem("favorites")) || []
+			favorites: JSON.parse(localStorage.getItem("favorites")) || [],
 		}));
 	}
 
@@ -46,7 +46,9 @@ class Home extends React.Component {
 
 	removeLocation(location) {
 		const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-		const indexToRemove = favorites.map(address => address.matchedAddress).indexOf(location.matchedAddress);
+		const indexToRemove = favorites
+			.map((address) => address.matchedAddress)
+			.indexOf(location.matchedAddress);
 
 		if (indexToRemove > -1) {
 			favorites.splice(indexToRemove, 1);
@@ -60,7 +62,11 @@ class Home extends React.Component {
 	saveLocation(location) {
 		const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-		if (favorites.map(address => address.matchedAddress).indexOf(location.matchedAddress) === -1) {
+		if (
+			favorites
+				.map((address) => address.matchedAddress)
+				.indexOf(location.matchedAddress) === -1
+		) {
 			favorites.push(location);
 
 			localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -93,7 +99,11 @@ class Home extends React.Component {
 
 					<h1>Just the Weather!</h1>
 
-					<div style={{ display: this.state.favorites.length > 0 ? "block" : "none" }}>
+					<div
+						style={{
+							display: this.state.favorites.length > 0 ? "block" : "none",
+						}}
+					>
 						<h2>My Favorites</h2>
 
 						<ul>
@@ -110,15 +120,15 @@ class Home extends React.Component {
 												<a>View Forecasts</a>
 											</Link>
 											<button
-													type="button"
-													onClick={() => this.removeLocation(a)}
-												>
-													Remove favorite
-												</button>
+												type="button"
+												onClick={() => this.removeLocation(a)}
+											>
+												Remove favorite
+											</button>
 
 											<hr />
 										</li>
-									))
+								  ))
 								: null}
 						</ul>
 					</div>

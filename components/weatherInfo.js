@@ -7,7 +7,11 @@ function WeatherInfo(props) {
 		<div className="weather-info container">
 			<div className="row">
 				<div className="col-12 col-md">
-					<h3>{info.name ? info.name : format(new Date(info.startTime), 'E yyyy-MM-dd HH:mm')}</h3>
+					<h3>
+						{info.name
+							? info.name
+							: format(new Date(info.startTime), "E yyyy-MM-dd HH:mm")}
+					</h3>
 				</div>
 				<div className="col-12 col-md temperature">
 					{info.temperature} &deg;{info.temperatureUnit}
@@ -19,9 +23,12 @@ function WeatherInfo(props) {
 				<div className="col-12 col-md">
 					<img src={info.icon} alt={info.shortForecast} />
 				</div>
-				{info.number % 10 === 0 ? <div className="col-12"><a href="#top">Back to Top</a></div> : null}
+				{info.number % 10 === 0 ? (
+					<div className="col-12">
+						<a href="#top">Back to Top</a>
+					</div>
+				) : null}
 			</div>
-
 		</div>
 	);
 }

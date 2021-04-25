@@ -28,7 +28,8 @@ a {
 	border-bottom: 1px solid #111111;
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
 	border-bottom-width: 3px;
 }
 
@@ -105,7 +106,8 @@ input[type="button"]:focus {
 	text-align: center;
 }
 
-.forecast, .wind {
+.forecast,
+.wind {
 	color: #1e1e1e;
 }
 
