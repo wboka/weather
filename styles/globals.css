@@ -34,6 +34,7 @@ a:hover, a:active {
 
 ul {
 	list-style: none;
+	padding-left: 0;
 }
 
 input {
