@@ -38,33 +38,39 @@ class Weather extends React.Component {
 
 	render() {
 		return (
-			<main>
+			<main id="top">
 				<Header title={this.state.location} />
 
 				<Link href="/">
-					<a>Back to main</a>
+					<a>Back to home</a>
 				</Link>
 
 				<h1>{this.state.location}</h1>
 
-				<h2>Daily Forecast</h2>
+				<h2 id="daily">Daily Forecast</h2>
+
+				<a href="#hourly">Go to Hourly</a>
 
 				<div>
 					{this.state.dailyForecast.periods
 						? this.state.dailyForecast.periods.map((f) => {
 								return <WeatherInfo key={f.name} info={f} />;
 						  })
-						: null}
+						: <p>Getting daily forecast...</p>}
 				</div>
 
-				<h2>Hourly Forecast</h2>
+				<a href="#top">Back to Top</a>
+
+				<h2 id="hourly">Hourly Forecast</h2>
+
+				<a href="#daily">Go to Daily</a>
 
 				<div>
 					{this.state.hourlyForecast.periods
 						? this.state.hourlyForecast.periods.map((f) => {
 								return <WeatherInfo key={f.number} info={f} />;
 						  })
-						: null}
+						: <p>Getting hourly forecast...</p>}
 				</div>
 			</main>
 		);

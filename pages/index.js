@@ -85,13 +85,13 @@ class Home extends React.Component {
 				<main style={{ textAlign: "center" }}>
 					<Image
 						src="/weather.png"
-						alt="Orange sun, grey clouds, grey rain, and yellow lighning bolt"
-						style={{ maxWidth: "300px", width: "100%" }}
-						width={300}
-						height={300}
+						alt="Orange sun, grey clouds, grey rain, and yellow lightning bolt"
+						style={{ maxWidth: "250px", width: "100%" }}
+						width={250}
+						height={250}
 					/>
 
-					<h1>Welcome to Just the Weather!</h1>
+					<h1>Just the Weather!</h1>
 
 					<div style={{ display: this.state.favorites.length > 0 ? "block" : "none" }}>
 						<h2>My Favorites</h2>
