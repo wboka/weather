@@ -12,6 +12,11 @@ body {
 	overflow-wrap: break-word;
 }
 
+.dark body {
+	background: #121212;
+	color: #aaaaaa;
+}
+
 main,
 footer {
 	padding: 2em;
@@ -26,6 +31,10 @@ a {
 	text-decoration: none;
 	font-style: italic;
 	border-bottom: 1px solid #111111;
+}
+
+.dark a {
+	border-bottom-color: #aaaaaa;
 }
 
 a:hover,
@@ -45,6 +54,11 @@ input {
 	padding: 0.25em;
 	text-align: center;
 	width: 100%;
+}
+
+.dark input {
+	background-color: #777777;
+	border-bottom-color: #cccccc;
 }
 
 button,
@@ -76,6 +90,14 @@ input[type="button"] {
 	box-sizing: border-box;
 }
 
+.dark .button,
+.dark button,
+.dark input[type="submit"],
+.dark input[type="reset"],
+.dark input[type="button"] {
+	color: #aaaaaa;
+}
+
 .button:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -89,6 +111,15 @@ input[type="button"]:focus {
 	color: #333;
 	border-color: #888;
 	outline: 0;
+}
+
+.dark .button:hover,
+.dark button:hover,
+.dark input[type="submit"]:hover,
+.dark input[type="reset"]:hover,
+.dark input[type="button"]:hover {
+	background-color: #aaaaaa;
+	color: #121212;
 }
 
 .flex {

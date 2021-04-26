@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
-import Image from "next/image";
+import Menu from "../components/Menu";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
@@ -88,17 +88,9 @@ class Home extends React.Component {
 			<div>
 				<Header title="Home" />
 
+				<Menu />
+
 				<main style={{ textAlign: "center" }}>
-					<Image
-						src="/weather.png"
-						alt="Orange sun, grey clouds, grey rain, and yellow lightning bolt"
-						style={{ maxWidth: "250px", width: "100%" }}
-						width={250}
-						height={250}
-					/>
-
-					<h1>Just the Weather!</h1>
-
 					<div
 						style={{
 							display: this.state.favorites.length > 0 ? "block" : "none",
