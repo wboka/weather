@@ -142,6 +142,11 @@ input[type="button"]:focus {
 	color: #1e1e1e;
 }
 
+.dark .forecast,
+.dark .wind {
+	color: #cccccc;
+}
+
 .temperature {
 	font-size: 2.5em;
 	font-weight: 500;
