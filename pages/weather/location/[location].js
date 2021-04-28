@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "../../../components/Header";
+import Menu from "../../../components/Menu";
 import Link from "next/link";
 import getWeatherByLocation from "../../../utils/weather";
-import getLocationByLookup from "../../../utils/location";
 
 import WeatherInfo from "../../../components/weatherInfo";
 
@@ -41,6 +41,8 @@ class Weather extends React.Component {
 		return (
 			<main id="top">
 				<Header title={this.state.location} />
+
+				<Menu />
 
 				<Link href="/">
 					<a>Back to home</a>
