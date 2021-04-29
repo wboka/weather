@@ -126,6 +126,11 @@ input[type="button"]:focus {
 	color: #121212;
 }
 
+.dark .menu {
+	background: #2e0000;
+	border-bottom-color: #1e0000;
+}
+
 .flex {
 	display: flex;
 	flex-direction: column;
@@ -161,7 +166,7 @@ input[type="button"]:focus {
 }
 
 /* Larger than phablet */
-@media (min-width: 550px) {
+@media (min-width: 575px) {
 	html,
 	body {
 		font-size: 16px;

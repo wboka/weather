@@ -13,19 +13,17 @@ export function Settings() {
 	if (!mounted) return null;
 
 	return (
-		<main>
+		<div>
 			<Header title="Settings" />
-
 			<Menu />
-
-			<h1>Settings</h1>
-
-			<h2>Themes</h2>
-
-			<button onClick={() => setTheme("system")}>System (Default)</button>
-			<button onClick={() => setTheme("light")}>Light</button>
-			<button onClick={() => setTheme("dark")}>Dark</button>
-		</main>
+			<main>
+				<h1>Settings</h1>
+				<h2>Themes</h2>
+				<button onClick={() => setTheme("system")}>System (Default)</button>
+				<button onClick={() => setTheme("light")}>Light</button>
+				<button onClick={() => setTheme("dark")}>Dark</button>
+			</main>
+		</div>
 	);
 }
 

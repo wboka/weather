@@ -1,0 +1,26 @@
+.menu {
+	background: #b8fdc4;
+	border-bottom: 2px solid #6b9271;
+	margin-bottom: 0.25em;
+}
+
+.dark .menu {
+	background: #2e0000;
+	border-bottom-color: #1e0000;
+}
+
+.settings, .title {
+	padding: 0.5em;
+	text-align: center;
+}
+
+@media (min-width: 575px) {
+	.settings,
+	.title {
+		text-align: right;
+	}
+
+	.title {
+		padding: 0;
+	}
+}

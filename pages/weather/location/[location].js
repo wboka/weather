@@ -39,47 +39,48 @@ class Weather extends React.Component {
 
 	render() {
 		return (
-			<main id="top">
+			<div>
 				<Header title={this.state.location} />
 
 				<Menu />
+				<main id="top">
+					<Link href="/">
+						<a>Back to home</a>
+					</Link>
 
-				<Link href="/">
-					<a>Back to home</a>
-				</Link>
+					<h1>{this.state.location}</h1>
 
-				<h1>{this.state.location}</h1>
+					<h2 id="daily">Daily Forecast</h2>
 
-				<h2 id="daily">Daily Forecast</h2>
+					<a href="#hourly">Go to Hourly</a>
 
-				<a href="#hourly">Go to Hourly</a>
+					<div>
+						{this.state.dailyForecast.periods ? (
+							this.state.dailyForecast.periods.map((f) => {
+								return <WeatherInfo key={f.name} info={f} />;
+							})
+						) : (
+							<p>Getting daily forecast...</p>
+						)}
+					</div>
 
-				<div>
-					{this.state.dailyForecast.periods ? (
-						this.state.dailyForecast.periods.map((f) => {
-							return <WeatherInfo key={f.name} info={f} />;
-						})
-					) : (
-						<p>Getting daily forecast...</p>
-					)}
-				</div>
+					<a href="#top">Back to Top</a>
 
-				<a href="#top">Back to Top</a>
+					<h2 id="hourly">Hourly Forecast</h2>
 
-				<h2 id="hourly">Hourly Forecast</h2>
+					<a href="#daily">Go to Daily</a>
 
-				<a href="#daily">Go to Daily</a>
-
-				<div>
-					{this.state.hourlyForecast.periods ? (
-						this.state.hourlyForecast.periods.map((f) => {
-							return <WeatherInfo key={f.number} info={f} />;
-						})
-					) : (
-						<p>Getting hourly forecast...</p>
-					)}
-				</div>
-			</main>
+					<div>
+						{this.state.hourlyForecast.periods ? (
+							this.state.hourlyForecast.periods.map((f) => {
+								return <WeatherInfo key={f.number} info={f} />;
+							})
+						) : (
+							<p>Getting hourly forecast...</p>
+						)}
+					</div>
+				</main>
+			</div>
 		);
 	}
 }
