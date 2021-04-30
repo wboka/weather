@@ -17,10 +17,10 @@ function WeatherInfo(props) {
 					{info.temperature} &deg;{info.temperatureUnit}
 				</div>
 				<div className="col-6 col-md forecast">{info.shortForecast}</div>
-				<div className="col-4 col-md wind">
+				<div className="col-6 col-md wind">
 					{info.windSpeed} {info.windDirection}
 				</div>
-				<div className="col-4 col-md">
+				<div className="col-6 col-md">
 					<img src={info.icon} alt={info.shortForecast} />
 				</div>
 				{info.number % 10 === 0 ? (
