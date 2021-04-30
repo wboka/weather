@@ -1,7 +1,12 @@
 .menu {
-	background: #b8fdc4;
-	border-bottom: 2px solid #6b9271;
+	background: #7b7263;
+	border-bottom: 2px solid #928877;
+	color: #ffffff;
 	margin-bottom: 0.25em;
+}
+
+.menu a {
+	border-bottom: none;
 }
 
 .dark .menu {
@@ -9,10 +14,28 @@
 	border-bottom-color: #1e0000;
 }
 
+.settings {
+	text-decoration: none;
+}
+
+.icon {
+	height: 40px;
+	max-width: 50px;
+	width: 100%;
+}
+
+.home,
 .settings,
 .title {
 	padding: 0.5em;
 	text-align: center;
+}
+
+.title {
+	font-size: 1.75em;
+	font-weight: 100;
+	letter-spacing: -0.025em;
+	font-style: italic;
 }
 
 @media (min-width: 575px) {
@@ -22,6 +45,7 @@
 	}
 
 	.title {
+		font-size: 2em;
 		padding: 0;
 	}
 }
