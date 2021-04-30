@@ -9,7 +9,8 @@
 	border-bottom-color: #1e0000;
 }
 
-.settings, .title {
+.settings,
+.title {
 	padding: 0.5em;
 	text-align: center;
 }

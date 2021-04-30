@@ -18,10 +18,7 @@ const Menu = () => {
 							height={50}
 						/>
 					</div>
-					<div
-						className="col-8 title"
-						style={{ textAlign: "center" }}
-					>
+					<div className="col-8 title" style={{ textAlign: "center" }}>
 						<Link href="/">
 							<a>
 								<h1>Just the Weather!</h1>

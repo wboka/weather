@@ -6,6 +6,7 @@
 		"build": "next build",
 		"dev": "next dev",
 		"format": "prettier --write .",
+		"prepare": "husky install",
 		"start": "next start"
 	},
 	"dependencies": {
@@ -19,6 +20,11 @@
 	"devDependencies": {
 		"@commitlint/cli": "^12.1.1",
 		"@commitlint/config-conventional": "^12.1.1",
+		"husky": "^6.0.0",
+		"lint-staged": "^10.5.4",
 		"prettier": "^2.2.1"
+	},
+	"lint-staged": {
+		"**/*": "prettier --write --ignore-unknown"
 	}
 }
