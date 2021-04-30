@@ -1,6 +1,6 @@
 import { ThemeProvider } from "next-themes";
 import "../styles/globals.scss";
-import "../styles/menu.scss";
+import "../styles/Menu.scss";
 import "../styles/lib/bootstrap-grid.min.css";
 
 function MyApp({ Component, pageProps }) {
