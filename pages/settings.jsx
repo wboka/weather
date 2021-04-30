@@ -22,6 +22,8 @@ export function Settings() {
 				<button onClick={() => setTheme("system")}>System (Default)</button>
 				<button onClick={() => setTheme("light")}>Light</button>
 				<button onClick={() => setTheme("dark")}>Dark</button>
+				<button onClick={() => setTheme("forest")}>Forest</button>
+				<button onClick={() => setTheme("bright")}>Bright</button>
 			</main>
 		</div>
 	);

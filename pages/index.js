@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Menu from "../components/Menu";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 
 class Home extends React.Component {
 	constructor(props) {

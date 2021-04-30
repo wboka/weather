@@ -3,15 +3,33 @@
 	border-bottom: 2px solid #928877;
 	color: #ffffff;
 	margin-bottom: 0.25em;
+
+	a {
+		border-bottom: none;
+	}
 }
 
-.menu a {
-	border-bottom: none;
+.dark {
+	.menu {
+		background: #2e0000;
+		border-bottom-color: #1e0000;
+	}
 }
 
-.dark .menu {
-	background: #2e0000;
-	border-bottom-color: #1e0000;
+.forest {
+	.menu {
+		background: #1e2d24;
+		border-bottom-color: #334139;
+		color: #ffffff;
+	}
+}
+
+.bright {
+	.menu {
+		background: #8338ec;
+		border-bottom-color: #3a86ff;
+		color: #fffaeb;
+	}
 }
 
 .settings {

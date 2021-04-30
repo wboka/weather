@@ -16,11 +16,6 @@ h1 {
 	margin: 0 0 0.5em 0;
 }
 
-.dark body {
-	background: #121212;
-	color: #aaaaaa;
-}
-
 main,
 footer {
 	padding: 2em;
@@ -35,10 +30,6 @@ a {
 	text-decoration: none;
 	font-style: italic;
 	border-bottom: 1px solid #111111;
-}
-
-.dark a {
-	border-bottom-color: #aaaaaa;
 }
 
 a:hover,
@@ -58,11 +49,6 @@ input {
 	padding: 0.25em;
 	text-align: center;
 	width: 100%;
-}
-
-.dark input {
-	background-color: #777777;
-	border-bottom-color: #cccccc;
 }
 
 button,
@@ -94,14 +80,6 @@ input[type="button"] {
 	box-sizing: border-box;
 }
 
-.dark .button,
-.dark button,
-.dark input[type="submit"],
-.dark input[type="reset"],
-.dark input[type="button"] {
-	color: #aaaaaa;
-}
-
 .button:hover,
 button:hover,
 input[type="submit"]:hover,
@@ -117,26 +95,6 @@ input[type="button"]:focus {
 	outline: 0;
 }
 
-.dark .button:hover,
-.dark button:hover,
-.dark input[type="submit"]:hover,
-.dark input[type="reset"]:hover,
-.dark input[type="button"]:hover {
-	background-color: #aaaaaa;
-	color: #121212;
-}
-
-.flex {
-	display: flex;
-	flex-direction: column;
-}
-
-.flex > * {
-	vertical-align: middle;
-	padding: 1em;
-	flex: 1 0 auto;
-}
-
 .weather-info {
 	text-align: center;
 }
@@ -146,18 +104,125 @@ input[type="button"]:focus {
 	color: #1e1e1e;
 }
 
-.dark .forecast,
-.dark .wind {
-	color: #cccccc;
-}
-
 .temperature {
 	font-size: 2.5em;
 	font-weight: 500;
 }
 
-/* Larger than mobile */
-@media (min-width: 400px) {
+.dark {
+	body {
+		background: #121212;
+		color: #aaaaaa;
+	}
+
+	a {
+		border-bottom-color: #aaaaaa;
+	}
+
+	input {
+		background-color: #777777;
+		border-bottom-color: #cccccc;
+	}
+
+	.button,
+	button,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"] {
+		color: #aaaaaa;
+	}
+
+	.button:hover,
+	button:hover,
+	input[type="submit"]:hover,
+	input[type="reset"]:hover,
+	input[type="button"]:hover {
+		background-color: #aaaaaa;
+		color: #121212;
+	}
+
+	.forecast,
+	.wind {
+		color: #cccccc;
+	}
+}
+
+.forest {
+	body {
+		background: #c7c7a6;
+		color: #121212;
+	}
+
+	a {
+		border-bottom-color: #1e2d24;
+	}
+
+	input {
+		background-color: #a49966;
+		border-bottom-color: #121212;
+	}
+
+	.button,
+	button,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"] {
+		border-color: #121212;
+		color: #121212;
+	}
+
+	.button:hover,
+	button:hover,
+	input[type="submit"]:hover,
+	input[type="reset"]:hover,
+	input[type="button"]:hover {
+		background-color: #121212;
+		color: #ffffff;
+	}
+
+	.forecast,
+	.wind {
+		color: #202020;
+	}
+}
+
+.bright {
+	body {
+		background: #fffaeb;
+		color: #000814;
+	}
+
+	a {
+		border-bottom-color: #000814;
+	}
+
+	input {
+		background-color: #ffe085;
+		border-bottom-color: #000814;
+	}
+
+	.button,
+	button,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"] {
+		border-color: #000814;
+		color: #000814;
+	}
+
+	.button:hover,
+	button:hover,
+	input[type="submit"]:hover,
+	input[type="reset"]:hover,
+	input[type="button"]:hover {
+		background-color: #000814;
+		color: #fffaeb;
+	}
+
+	.forecast,
+	.wind {
+		color: #202020;
+	}
 }
 
 /* Larger than phablet */
