@@ -10,6 +10,7 @@ body {
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 	font-size: 14px;
 	overflow-wrap: break-word;
+	color: #151515;
 }
 
 h1 {
@@ -97,11 +98,23 @@ input[type="button"]:focus {
 
 .weather-info {
 	text-align: center;
+	padding: 0.5em;
+	border-radius: 1em;
+}
+
+.weather-info:nth-child(2n) {
+	background-color: #151515;
+	color: #919191;
+
+	.forecast,
+	.wind {
+		color: #919191;
+	}
 }
 
 .forecast,
 .wind {
-	color: #1e1e1e;
+	color: #151515;
 }
 
 .temperature {
@@ -145,6 +158,16 @@ input[type="button"]:focus {
 	.wind {
 		color: #cccccc;
 	}
+
+	.weather-info:nth-child(2n) {
+		background-color: #919191;
+		color: #151515;
+
+		.forecast,
+		.wind {
+			color: #151515;
+		}
+	}
 }
 
 .forest {
@@ -184,6 +207,16 @@ input[type="button"]:focus {
 	.wind {
 		color: #202020;
 	}
+
+	.weather-info:nth-child(2n) {
+		background-color: #1e2d24;
+		color: #a1a1a1;
+
+		.forecast,
+		.wind {
+			color: #a1a1a1;
+		}
+	}
 }
 
 .bright {
@@ -222,6 +255,16 @@ input[type="button"]:focus {
 	.forecast,
 	.wind {
 		color: #202020;
+	}
+
+	.weather-info:nth-child(2n) {
+		background-color: #26539b;
+		color: #e1e1e1;
+
+		.forecast,
+		.wind {
+			color: #e1e1e1;
+		}
 	}
 }
 

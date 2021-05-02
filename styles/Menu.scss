@@ -7,6 +7,11 @@
 	a {
 		border-bottom: none;
 	}
+
+	.logo {
+		margin: 0 0.5em 0 0;
+		vertical-align: top;
+	}
 }
 
 .dark {
@@ -65,5 +70,11 @@
 	.title {
 		font-size: 2em;
 		padding: 0;
+	}
+
+	.menu {
+		.logo {
+			margin: 0.25em 0.5em 0 0;
+		}
 	}
 }

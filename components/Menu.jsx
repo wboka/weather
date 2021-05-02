@@ -29,10 +29,10 @@ const Menu = () => {
 						<img
 							src="/weather.png"
 							alt="Orange sun, grey clouds, grey rain, and yellow lightning bolt"
+							className="logo"
 							style={{
 								maxWidth: "35px",
 								width: "100%",
-								margin: "8px 8px 0 auto",
 							}}
 							width={35}
 						/>
