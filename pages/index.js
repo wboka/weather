@@ -10,6 +10,7 @@ class Home extends React.Component {
 
 		this.state = {
 			address: "",
+			isCurrentlySearching: true,
 			possibleAddresses: [],
 			favorites: [],
 			locationTimeout: null,
@@ -33,6 +34,10 @@ class Home extends React.Component {
 	}
 
 	getLocations() {
+		this.setState((state, props) => ({
+			isCurrentlySearching: true,
+		}));
+
 		if (!this.state.address) return;
 
 		fetch(`/api/location/${encodeURI(this.state.address)}`)
@@ -40,6 +45,7 @@ class Home extends React.Component {
 			.then((data) => {
 				this.setState((state, props) => ({
 					possibleAddresses: data.addressMatches,
+					isCurrentlySearching: false,
 				}));
 			});
 	}
@@ -149,6 +155,30 @@ class Home extends React.Component {
 
 						<div style={{ display: this.state.address ? "block" : "none" }}>
 							<h2>Possible Address Matches</h2>
+
+							<p
+								style={{
+									display:
+										this.state.possibleAddresses.length === 0 &&
+										this.state.isCurrentlySearching
+											? "block"
+											: "none",
+								}}
+							>
+								Finding possible addresses...
+							</p>
+
+							<p
+								style={{
+									display:
+										this.state.possibleAddresses.length === 0 &&
+										!this.state.isCurrentlySearching
+											? "block"
+											: "none",
+								}}
+							>
+								No address found for <em>{this.state.address}</em>
+							</p>
 
 							<ul>
 								{this.state.possibleAddresses.length > 0

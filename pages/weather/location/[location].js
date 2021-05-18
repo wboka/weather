@@ -13,8 +13,8 @@ class Weather extends React.Component {
 
 		this.state = {
 			location: this.props.location,
-			dailyForecast: {},
-			hourlyForecast: {},
+			dailyForecast: null,
+			hourlyForecast: null,
 			lastUpdatedDaily: null,
 			lastUpdatedHourly: null,
 			radarStation: null,
@@ -27,13 +27,15 @@ class Weather extends React.Component {
 			.map((address) => address.matchedAddress)
 			.indexOf(this.state.location);
 
-		this.setState((state, props) => ({
-			lastUpdatedDaily: favorites[favoriteIndex].forecast.updated,
-			dailyForecast: favorites[favoriteIndex].forecast.dailyForecast,
-			lastUpdatedHourly: favorites[favoriteIndex].forecast.updated,
-			hourlyForecast: favorites[favoriteIndex].forecast.hourlyForecast,
-			radarStation: favorites[favoriteIndex].forecast.radarStation,
-		}));
+		if (favoriteIndex > -1) {
+			this.setState((state, props) => ({
+				lastUpdatedDaily: favorites[favoriteIndex].forecast.updated,
+				dailyForecast: favorites[favoriteIndex].forecast.dailyForecast,
+				lastUpdatedHourly: favorites[favoriteIndex].forecast.updated,
+				hourlyForecast: favorites[favoriteIndex].forecast.hourlyForecast,
+				radarStation: favorites[favoriteIndex].forecast.radarStation,
+			}));
+		}
 
 		const locationResponse = await fetch(
 			`/api/location/${encodeURI(this.state.location)}`
@@ -100,7 +102,7 @@ class Weather extends React.Component {
 					<a href="#hourly">Go to Hourly</a>
 
 					<div>
-						{this.state.dailyForecast.periods ? (
+						{this.state.dailyForecast && this.state.dailyForecast.periods ? (
 							this.state.dailyForecast.periods.map((f) => {
 								return <WeatherInfo key={f.name} info={f} />;
 							})
@@ -128,7 +130,7 @@ class Weather extends React.Component {
 					<a href="#daily">Go to Daily</a>
 
 					<div>
-						{this.state.hourlyForecast.periods ? (
+						{this.state.hourlyForecast && this.state.hourlyForecast.periods ? (
 							this.state.hourlyForecast.periods.map((f) => {
 								return <WeatherInfo key={f.number} info={f} />;
 							})
