@@ -29,9 +29,11 @@ class Weather extends React.Component {
 
 		if (favoriteIndex > -1) {
 			this.setState((state, props) => ({
-				lastUpdatedDaily: favorites[favoriteIndex].forecast.updated,
+				lastUpdatedDaily:
+					favorites[favoriteIndex].forecast.dailyForecast.updated,
 				dailyForecast: favorites[favoriteIndex].forecast.dailyForecast,
-				lastUpdatedHourly: favorites[favoriteIndex].forecast.updated,
+				lastUpdatedHourly:
+					favorites[favoriteIndex].forecast.hourlyForecast.updated,
 				hourlyForecast: favorites[favoriteIndex].forecast.hourlyForecast,
 				radarStation: favorites[favoriteIndex].forecast.radarStation,
 			}));

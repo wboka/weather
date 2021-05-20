@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Menu from "../components/Menu";
+import LoginLinks from "../components/LoginLinks";
 import Link from "next/link";
 import styles from "../styles/Home.module.scss";
 
@@ -97,6 +98,8 @@ class Home extends React.Component {
 				<Menu />
 
 				<main style={{ textAlign: "center" }}>
+					{/* <LoginLinks /> */}
+
 					<div
 						style={{
 							display: this.state.favorites.length > 0 ? "block" : "none",
@@ -130,7 +133,6 @@ class Home extends React.Component {
 								: null}
 						</ul>
 					</div>
-
 					<form
 						action={`/api/location/${encodeURI(this.state.address)}`}
 						method="post"
