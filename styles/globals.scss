@@ -124,6 +124,30 @@ input[type="button"]:focus {
 	font-weight: 500;
 }
 
+.refresh-forecast {
+	color: hsl(0, 100%, 100%);
+	display: block;
+	margin: 10px auto;
+}
+
+.action-bar {
+	background-color: hsla(38, 11%, 30%, 75%);
+	bottom: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+}
+
+.light {
+	.action-bar {
+		.refresh-forecast:hover {
+			background-color: hsl(0, 100%, 0%);
+			color: hsl(0, 100%, 100%);
+		}
+	}
+}
+
 .dark {
 	body {
 		background: #121212;
@@ -137,6 +161,12 @@ input[type="button"]:focus {
 	input {
 		background-color: #777777;
 		border-bottom-color: #cccccc;
+	}
+
+	.vercel {
+		path {
+			fill: #ffffff;
+		}
 	}
 
 	.button,
@@ -161,6 +191,10 @@ input[type="button"]:focus {
 		color: #cccccc;
 	}
 
+	.action-bar {
+		background-color: hsla(0, 100%, 9%, 75%);
+	}
+
 	.weather-info:nth-child(2n) {
 		background-color: #919191;
 		color: #151515;
@@ -183,8 +217,9 @@ input[type="button"]:focus {
 	}
 
 	input {
-		background-color: #a49966;
+		background-color: hsl(49, 25%, 30%);
 		border-bottom-color: #121212;
+		color: hsl(49, 25%, 75%);
 	}
 
 	.button,
@@ -208,6 +243,15 @@ input[type="button"]:focus {
 	.forecast,
 	.wind {
 		color: #202020;
+	}
+
+	.action-bar {
+		background-color: hsla(144, 20%, 15%, 90%);
+
+		.refresh-forecast {
+			color: hsl(0, 100%, 100%);
+			border-color: hsl(0, 100%, 100%);
+		}
 	}
 
 	.weather-info:nth-child(2n) {
@@ -257,6 +301,15 @@ input[type="button"]:focus {
 	.forecast,
 	.wind {
 		color: #202020;
+	}
+
+	.action-bar {
+		background-color: hsl(265, 83%, 57%, 90%);
+
+		.refresh-forecast {
+			color: hsl(0, 100%, 100%);
+			border-color: hsl(0, 100%, 100%);
+		}
 	}
 
 	.weather-info:nth-child(2n) {

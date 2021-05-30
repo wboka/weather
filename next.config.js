@@ -3,6 +3,9 @@ const path = require("path");
 
 module.exports = withPWA({
 	poweredByHeader: false,
+	env: {
+		AUTH0_BASE_URL: process.env.VERCEL_URL || process.env.AUTH0_BASE_URL,
+	},
 	future: {
 		webpack5: true,
 	},
@@ -12,5 +15,13 @@ module.exports = withPWA({
 	},
 	sassOptions: {
 		includePaths: [path.join(__dirname, "styles")],
+	},
+	webpack(config) {
+		config.module.rules.push({
+			test: /\.svg$/,
+			use: ["@svgr/webpack"],
+		});
+
+		return config;
 	},
 });

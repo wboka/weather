@@ -1,5 +1,4 @@
 import Header from "../components/Header";
-import Menu from "../components/Menu";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
@@ -15,7 +14,7 @@ export function Settings() {
 	return (
 		<div>
 			<Header title="Settings" />
-			<Menu />
+
 			<main>
 				<h1>Settings</h1>
 				<h2>Themes</h2>

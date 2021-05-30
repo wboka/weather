@@ -3,7 +3,6 @@ import Link from "next/link";
 import format from "date-fns/format";
 
 import Header from "../../../components/Header";
-import Menu from "../../../components/Menu";
 import WeatherInfo from "../../../components/weatherInfo";
 import getWeatherByLocation from "../../../utils/weather";
 
@@ -21,7 +20,7 @@ class Weather extends React.Component {
 		};
 	}
 
-	async componentDidMount() {
+	componentDidMount() {
 		const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 		const favoriteIndex = favorites
 			.map((address) => address.matchedAddress)
@@ -39,6 +38,10 @@ class Weather extends React.Component {
 			}));
 		}
 
+		this.getForecast();
+	}
+
+	async getForecast() {
 		const locationResponse = await fetch(
 			`/api/location/${encodeURI(this.state.location)}`
 		);
@@ -79,7 +82,6 @@ class Weather extends React.Component {
 			<div>
 				<Header title={this.state.location} />
 
-				<Menu />
 				<main id="top">
 					<Link href="/">
 						<a>Back to home</a>
@@ -88,6 +90,16 @@ class Weather extends React.Component {
 					<h1>{this.state.location}</h1>
 
 					<h2 id="daily">Daily Forecast</h2>
+
+					<div className="action-bar">
+						<button
+							type="button"
+							onClick={() => this.getForecast()}
+							className="refresh-forecast"
+						>
+							Refresh
+						</button>
+					</div>
 
 					<p>
 						Last Updated:{" "}

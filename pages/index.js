@@ -1,9 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
-import Menu from "../components/Menu";
-import LoginLinks from "../components/LoginLinks";
+// import LoginLinks from "../components/LoginLinks";
 import Link from "next/link";
-import styles from "../styles/Home.module.scss";
 
 class Home extends React.Component {
 	constructor(props) {
@@ -94,8 +92,6 @@ class Home extends React.Component {
 		return (
 			<div>
 				<Header title="Home" />
-
-				<Menu />
 
 				<main style={{ textAlign: "center" }}>
 					{/* <LoginLinks /> */}
@@ -210,33 +206,6 @@ class Home extends React.Component {
 						</div>
 					</form>
 				</main>
-
-				<footer>
-					<p>
-						Web Development by{" "}
-						<a
-							href="https://www.bokasolutions.com"
-							target="_blank"
-							rel="noopener"
-						>
-							Wayne Boka, Web Developer
-						</a>
-					</p>
-					<p>
-						Powered by{" "}
-						<a
-							href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<img
-								src="/vercel.svg"
-								alt="Vercel Logo"
-								className={styles.logo}
-							/>
-						</a>
-					</p>
-				</footer>
 			</div>
 		);
 	}
