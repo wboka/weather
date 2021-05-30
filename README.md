@@ -43,4 +43,4 @@ Features
 
 ### `api/weather/[location]`
 
-Looks up weather from the NWS forecast using a givven `location`
+Looks up weather from the NWS forecast using a `location`
