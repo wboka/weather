@@ -27,15 +27,17 @@ class Weather extends React.Component {
 			.indexOf(this.state.location);
 
 		if (favoriteIndex > -1) {
-			this.setState((state, props) => ({
-				lastUpdatedDaily:
-					favorites[favoriteIndex].forecast.dailyForecast.updated,
-				dailyForecast: favorites[favoriteIndex].forecast.dailyForecast,
-				lastUpdatedHourly:
-					favorites[favoriteIndex].forecast.hourlyForecast.updated,
-				hourlyForecast: favorites[favoriteIndex].forecast.hourlyForecast,
-				radarStation: favorites[favoriteIndex].forecast.radarStation,
-			}));
+			if (favorites[favoriteIndex].forecast) {
+				this.setState((state, props) => ({
+					lastUpdatedDaily:
+						favorites[favoriteIndex].forecast.dailyForecast.updated,
+					dailyForecast: favorites[favoriteIndex].forecast.dailyForecast,
+					lastUpdatedHourly:
+						favorites[favoriteIndex].forecast.hourlyForecast.updated,
+					hourlyForecast: favorites[favoriteIndex].forecast.hourlyForecast,
+					radarStation: favorites[favoriteIndex].forecast.radarStation,
+				}));
+			}
 		}
 
 		this.getForecast();
