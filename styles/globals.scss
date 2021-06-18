@@ -124,10 +124,6 @@ input[type="button"]:focus {
 	font-weight: 500;
 }
 
-.refresh-forecast {
-	color: hsl(0, 100%, 100%);
-}
-
 .action-bar {
 	background-color: hsla(38, 11%, 30%, 75%);
 	bottom: 0;
@@ -135,6 +131,17 @@ input[type="button"]:focus {
 	position: fixed;
 	width: 100%;
 	z-index: 2;
+	color: hsl(0, 100%, 100%);
+	display: flex;
+	justify-content: center;
+
+	.back-to-top {
+		margin: 1rem;
+	}
+
+	.refresh-forecast {
+		color: hsl(0, 100%, 100%);
+	}
 }
 
 .light {
