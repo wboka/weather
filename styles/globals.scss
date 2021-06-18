@@ -133,7 +133,7 @@ input[type="button"]:focus {
 	z-index: 2;
 	color: hsl(0, 100%, 100%);
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 
 	.back-to-top {
 		margin: 1rem;
