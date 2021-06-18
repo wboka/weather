@@ -142,13 +142,13 @@ class Home extends React.Component {
 								name="address"
 								id="address"
 								onChange={this.updateLocation.bind(this)}
-								placeholder="1600 Pennsylvania Ave, Washington, DC"
+								placeholder="Washington, DC"
 								value={this.state.address}
 							/>
 						</div>
 
 						<p className="help-block">
-							<small>Example: 1600 Pennsylvania Ave, Washington, DC</small>
+							<small>Example: Washington, DC</small>
 						</p>
 
 						<div style={{ display: this.state.address ? "block" : "none" }}>
