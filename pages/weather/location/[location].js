@@ -94,13 +94,13 @@ class Weather extends React.Component {
 					<h2 id="daily">Daily Forecast</h2>
 
 					<div className="action-bar">
-						<button
-							type="button"
-							onClick={() => this.getForecast()}
-							className="refresh-forecast"
-						>
-							Refresh
-						</button>
+						<div className="refresh-forecast">
+							<button type="button" onClick={() => this.getForecast()}>
+								Refresh
+							</button>
+
+							<a href="#top">Back to Top</a>
+						</div>
 					</div>
 
 					<p>
@@ -126,8 +126,6 @@ class Weather extends React.Component {
 							<p>Getting daily forecast...</p>
 						)}
 					</div>
-
-					<a href="#top">Back to Top</a>
 
 					<h2 id="hourly">Hourly Forecast</h2>
 

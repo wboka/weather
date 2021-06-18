@@ -23,11 +23,6 @@ function WeatherInfo(props) {
 				<div className="col-6 col-md">
 					<img src={info.icon} alt={info.shortForecast} />
 				</div>
-				{info.number % 10 === 0 ? (
-					<div className="col-4">
-						<a href="#top">Back to Top</a>
-					</div>
-				) : null}
 			</div>
 		</div>
 	);
