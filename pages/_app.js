@@ -13,13 +13,13 @@ function MyApp({ Component, pageProps }) {
 			attribute="class"
 			themes={["light", "dark", "forest", "bright"]}
 		>
-			<UserProvider>
-				<Menu />
+			{/* <UserProvider> */}
+			<Menu />
 
-				<Component {...pageProps} />
+			<Component {...pageProps} />
 
-				<Footer />
-			</UserProvider>
+			<Footer />
+			{/* </UserProvider> */}
 		</ThemeProvider>
 	);
 }

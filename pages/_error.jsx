@@ -1,7 +1,25 @@
 import Link from "next/link";
 import Header from "../components/Header";
+import getConfig from "next/config";
+
+const { serverRuntimeConfig } = getConfig();
 
 export function Error({ statusCode }) {
+	// Only require Rollbar and report error if we're on the server
+	if (!process.browser) {
+		console.log("Reporting error to Rollbar...");
+		const Rollbar = require("rollbar");
+		const rollbar = new Rollbar(serverRuntimeConfig.rollbarServerToken);
+		rollbar.error(err, req, (rollbarError) => {
+			if (rollbarError) {
+				console.error("Rollbar error reporting failed:");
+				console.error(rollbarError);
+				return;
+			}
+			console.log("Reported error to Rollbar");
+		});
+	}
+
 	return (
 		<main>
 			<Header title="Oops!" />
