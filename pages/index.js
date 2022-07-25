@@ -13,6 +13,7 @@ class Home extends React.Component {
 			possibleAddresses: [],
 			favorites: [],
 			locationTimeout: null,
+			lastAPICallTime: null,
 		};
 	}
 
@@ -35,17 +36,29 @@ class Home extends React.Component {
 	getLocations() {
 		this.setState((state, props) => ({
 			isCurrentlySearching: true,
+			lastAPICallTime: new Date().valueOf(),
 		}));
 
 		if (!this.state.address) return;
 
-		fetch(`/api/location/${encodeURI(this.state.address)}`)
+		fetch(`/api/location/${encodeURI(this.state.address)}`, {
+			method: "POST",
+			body: JSON.stringify({
+				lastAPICallTime: this.state.lastAPICallTime,
+			}),
+			headers: new Headers({
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			}),
+		})
 			.then((res) => res.json())
 			.then((data) => {
-				this.setState((state, props) => ({
-					possibleAddresses: data.addressMatches,
-					isCurrentlySearching: false,
-				}));
+				if (this.state.lastAPICallTime === data.lastAPICallTime) {
+					this.setState((state, props) => ({
+						possibleAddresses: data.addressMatches,
+						isCurrentlySearching: false,
+					}));
+				}
 			});
 	}
 
@@ -84,7 +97,7 @@ class Home extends React.Component {
 		this.setState((state, props) => ({
 			address: event.target.value,
 			possibleAddresses: [],
-			locationTimeout: setTimeout(this.getLocations.bind(this), 1000),
+			locationTimeout: setTimeout(this.getLocations.bind(this), 250),
 		}));
 	}
 
@@ -105,8 +118,8 @@ class Home extends React.Component {
 
 						<ul>
 							{this.state.favorites.length > 0
-								? this.state.favorites.map((a) => (
-										<li key={a.matchedAddress}>
+								? this.state.favorites.map((a, i) => (
+										<li key={`favorite-${i}`}>
 											<h3>{a.matchedAddress}</h3>
 
 											<Link
@@ -180,8 +193,8 @@ class Home extends React.Component {
 
 							<ul>
 								{this.state.possibleAddresses.length > 0
-									? this.state.possibleAddresses.map((a) => (
-											<li key={a.matchedAddress}>
+									? this.state.possibleAddresses.map((a, i) => (
+											<li key={`suggestion-${i}`}>
 												<h3>{a.matchedAddress}</h3>
 
 												<Link

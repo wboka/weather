@@ -13,5 +13,6 @@ export default async (req, res) => {
 				coordinates: location.location,
 			};
 		}),
+		lastAPICallTime: req.body.lastAPICallTime,
 	});
 };

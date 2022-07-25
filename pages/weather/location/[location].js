@@ -21,7 +21,12 @@ class Weather extends React.Component {
 	}
 
 	componentDidMount() {
-		const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+		let favorites = [];
+
+		try {
+			favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+		} catch (e) {}
+
 		const favoriteIndex = favorites
 			.map((address) => address.matchedAddress)
 			.indexOf(this.state.location);
