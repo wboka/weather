@@ -39,6 +39,24 @@ Features
   - Forest
   - Bright
 
+## Screenshots
+
+### Location Search
+
+![Location Search](./public/location-search.png)
+
+### Forecast Chart
+
+![Chart with temperatures](./public/location-forecast-chart.png)
+
+### Forecast Details
+
+![Forecast details](./public/location-forecast-details.png)
+
+### Settings
+
+![Settings](./public/settings.png)
+
 ## API
 
 ### `api/weather/[location]`
