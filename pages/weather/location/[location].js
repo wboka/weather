@@ -5,6 +5,7 @@ import format from "date-fns/format";
 import Header from "../../../components/Header";
 import WeatherInfo from "../../../components/weatherInfo";
 import getWeatherByLocation from "../../../utils/weather";
+import HourlyChart from "../../../components/HourlyChart";
 
 class Weather extends React.Component {
 	constructor(props) {
@@ -130,6 +131,14 @@ class Weather extends React.Component {
 
 					<div>
 						{this.state.dailyForecast && this.state.dailyForecast.periods ? (
+							<HourlyChart temperatures={this.state.dailyForecast.periods} />
+						) : (
+							<p>Getting hourly forecast...</p>
+						)}
+					</div>
+
+					<div>
+						{this.state.dailyForecast && this.state.dailyForecast.periods ? (
 							this.state.dailyForecast.periods.map((f) => {
 								return <WeatherInfo key={f.name} info={f} />;
 							})
@@ -153,6 +162,14 @@ class Weather extends React.Component {
 					</p>
 
 					<a href="#daily">Go to Daily</a>
+
+					<div>
+						{this.state.hourlyForecast && this.state.hourlyForecast.periods ? (
+							<HourlyChart temperatures={this.state.hourlyForecast.periods} />
+						) : (
+							<p>Getting hourly forecast...</p>
+						)}
+					</div>
 
 					<div>
 						{this.state.hourlyForecast && this.state.hourlyForecast.periods ? (
