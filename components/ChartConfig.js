@@ -45,6 +45,10 @@ export const Config = {
 				display: true,
 				text: "Temperature (F)",
 			},
+ticks: {
+                stepSize: 5
+            },
+
 		},
 	},
 };
