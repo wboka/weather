@@ -51,14 +51,14 @@ class Weather extends React.Component {
 
 	async getForecast() {
 		const locationResponse = await fetch(
-			`/api/location/${encodeURI(this.state.location)}`
+			`/api/location/${encodeURI(this.state.location)}`,
 		);
 		const locationData = await locationResponse.json();
 
 		const weatherData = await getWeatherByLocation(
 			`${encodeURI(
-				locationData.addressMatches[0].coordinates.y.toFixed(4)
-			)},${encodeURI(locationData.addressMatches[0].coordinates.x.toFixed(4))}`
+				locationData.addressMatches[0].coordinates.y.toFixed(4),
+			)},${encodeURI(locationData.addressMatches[0].coordinates.x.toFixed(4))}`,
 		);
 
 		this.setState((state, props) => ({
@@ -91,9 +91,7 @@ class Weather extends React.Component {
 				<Header title={this.state.location} />
 
 				<main id="top">
-					<Link href="/">
-						<a>Back to home</a>
-					</Link>
+					<Link href="/">Back to home</Link>
 
 					<h1>{this.state.location}</h1>
 
@@ -121,8 +119,8 @@ class Weather extends React.Component {
 							{this.state.lastUpdatedDaily
 								? format(
 										new Date(this.state.lastUpdatedDaily),
-										"E yyyy-MM-dd HH:mm"
-								  )
+										"E yyyy-MM-dd HH:mm",
+									)
 								: "Unknown"}
 						</em>
 					</p>
@@ -155,8 +153,8 @@ class Weather extends React.Component {
 							{this.state.lastUpdatedHourly
 								? format(
 										new Date(this.state.lastUpdatedHourly),
-										"E yyyy-MM-dd HH:mm"
-								  )
+										"E yyyy-MM-dd HH:mm",
+									)
 								: "Unknown"}
 						</em>
 					</p>

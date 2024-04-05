@@ -41,7 +41,7 @@ if (!self.define) {
 
 	const require = (names, resolve) => {
 		Promise.all(names.map(singleRequire)).then((modules) =>
-			resolve(modules.length === 1 ? modules[0] : modules)
+			resolve(modules.length === 1 ? modules[0] : modules),
 		);
 	};
 
@@ -69,7 +69,7 @@ if (!self.define) {
 						default:
 							return singleRequire(depName);
 					}
-				})
+				}),
 			).then((deps) => {
 				const facValue = factory(...deps);
 				if (!exports.default) {
@@ -121,7 +121,7 @@ define("./sw.js", ["./workbox-6b19f60b"], function (workbox) {
 				},
 			],
 		}),
-		"GET"
+		"GET",
 	);
 	workbox.registerRoute(
 		/.*/i,
@@ -133,7 +133,7 @@ define("./sw.js", ["./workbox-6b19f60b"], function (workbox) {
 				},
 			],
 		}),
-		"GET"
+		"GET",
 	);
 });
 //# sourceMappingURL=sw.js.map

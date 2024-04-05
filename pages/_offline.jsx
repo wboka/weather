@@ -16,9 +16,7 @@ class Offline extends React.Component {
 
 					<hr />
 
-					<Link href="/">
-						<a>Back to main</a>
-					</Link>
+					<Link href="/">Back to main</Link>
 				</main>
 			</div>
 		);

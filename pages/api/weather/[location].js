@@ -28,6 +28,6 @@ export default async (req, res) => {
 			});
 		})
 		.catch((error) =>
-			res.status(500).send(`Something went wrong, please try again later.`)
+			res.status(500).send(`Something went wrong, please try again later.`),
 		);
 };

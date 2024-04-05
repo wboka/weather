@@ -175,7 +175,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 				`An unexpected entry was passed to ` +
 				`'workbox-precaching.PrecacheController.addToCacheList()' The entry ` +
 				`'${JSON.stringify(
-					entry
+					entry,
 				)}' isn't supported. You must supply an array of ` +
 				`strings with one or more characters, objects with a url property or ` +
 				`Request objects.`
@@ -185,7 +185,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 			if (!firstEntry || !secondEntry) {
 				throw new Error(
 					`Unexpected input to ` +
-						`'add-to-cache-list-duplicate-entries' error.`
+						`'add-to-cache-list-duplicate-entries' error.`,
 				);
 			}
 
@@ -200,7 +200,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 		"plugin-error-request-will-fetch": ({ thrownError }) => {
 			if (!thrownError) {
 				throw new Error(
-					`Unexpected input to ` + `'plugin-error-request-will-fetch', error.`
+					`Unexpected input to ` + `'plugin-error-request-will-fetch', error.`,
 				);
 			}
 
@@ -212,7 +212,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 		"invalid-cache-name": ({ cacheNameId, value }) => {
 			if (!cacheNameId) {
 				throw new Error(
-					`Expected a 'cacheNameId' for error 'invalid-cache-name'`
+					`Expected a 'cacheNameId' for error 'invalid-cache-name'`,
 				);
 			}
 
@@ -226,7 +226,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 			if (!method) {
 				throw new Error(
 					`Unexpected input to ` +
-						`'unregister-route-but-not-found-with-method' error.`
+						`'unregister-route-but-not-found-with-method' error.`,
 				);
 			}
 
@@ -517,7 +517,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 	const isOneOf = (value, validValues, details) => {
 		if (!validValues.includes(value)) {
 			details["validValueDescription"] = `Valid values are ${JSON.stringify(
-				validValues
+				validValues,
 			)}.`;
 			throw new WorkboxError("invalid-value", details);
 		}
@@ -741,7 +741,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 						logger.debug(
 							`The regular expression '${regExp}' only partially matched ` +
 								`against the cross-origin URL '${url}'. RegExpRoute's will only ` +
-								`handle cross-origin requests if they match the entire URL.`
+								`handle cross-origin requests if they match the entire URL.`,
 						);
 					}
 
@@ -880,7 +880,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 							}); // TODO(philipwalton): TypeScript errors without this typecast for
 							// some reason (probably a bug). The real type here should work but
 							// doesn't: `Array<Promise<Response> | undefined>`.
-						})
+						}),
 					); // TypeScript
 
 					event.waitUntil(requestPromises); // If a MessageChannel was used, reply to the message on success.
@@ -919,7 +919,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 			if (!url.protocol.startsWith("http")) {
 				{
 					logger.debug(
-						`Workbox Router only supports URLs that start with 'http'.`
+						`Workbox Router only supports URLs that start with 'http'.`,
 					);
 				}
 
@@ -956,7 +956,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 				{
 					debugMessages.push(
 						`Failed to find a matching route. Falling ` +
-							`back to the default handler for ${method}.`
+							`back to the default handler for ${method}.`,
 					);
 				}
 
@@ -977,7 +977,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 				// We have a handler, meaning Workbox is going to handle the route.
 				// print the routing details to the console.
 				logger.groupCollapsed(
-					`Router is responding to: ${getFriendlyURL(url)}`
+					`Router is responding to: ${getFriendlyURL(url)}`,
 				);
 				debugMessages.forEach((msg) => {
 					if (Array.isArray(msg)) {
@@ -1018,8 +1018,8 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 							logger.groupCollapsed(
 								`Error thrown when responding to: ` +
 									` ${getFriendlyURL(
-										url
-									)}. Falling back to route's Catch Handler.`
+										url,
+									)}. Falling back to route's Catch Handler.`,
 							);
 							logger.error(`Error thrown by:`, route);
 							logger.error(err);
@@ -1045,8 +1045,8 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 							logger.groupCollapsed(
 								`Error thrown when responding to: ` +
 									` ${getFriendlyURL(
-										url
-									)}. Falling back to global Catch Handler.`
+										url,
+									)}. Falling back to global Catch Handler.`,
 							);
 							logger.error(`Error thrown by:`, route);
 							logger.error(err);
@@ -1103,7 +1103,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 								`While routing ${getFriendlyURL(url)}, an async ` +
 									`matchCallback function was used. Please convert the ` +
 									`following route to use a synchronous matchCallback function:`,
-								route
+								route,
 							);
 						}
 					} // See https://github.com/GoogleChrome/workbox/issues/2079
@@ -1314,7 +1314,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 					logger.debug(
 						`The '$capture' parameter contains an Express-style wildcard ` +
 							`character (${wildcards}). Strings are now always interpreted as ` +
-							`exact matches; use a RegExp for partial or wildcard matches.`
+							`exact matches; use a RegExp for partial or wildcard matches.`,
 					);
 				}
 			}
@@ -1328,7 +1328,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 						logger.debug(
 							`${capture} only partially matches the cross-origin URL ` +
 								`${url}. This route will only handle cross-origin requests ` +
-								`if they match the entire URL.`
+								`if they match the entire URL.`,
 						);
 					}
 				}
@@ -1489,7 +1489,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 		cache,
 		request,
 		ignoreParams,
-		matchOptions
+		matchOptions,
 	) {
 		const strippedRequestURL = stripParams(request.url, ignoreParams); // If the request doesn't include any ignored params, match as normal.
 
@@ -1571,7 +1571,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 		{
 			logger.log(
 				`About to run ${quotaErrorCallbacks.size} ` +
-					`callbacks to clean up caches.`
+					`callbacks to clean up caches.`,
 			);
 		}
 
@@ -1735,7 +1735,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 					{
 						logger.log(
 							`Using a preloaded navigation response for ` +
-								`'${getFriendlyURL(request.url)}'`
+								`'${getFriendlyURL(request.url)}'`,
 						);
 					}
 
@@ -1771,14 +1771,14 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 
 				fetchResponse = await fetch(
 					request,
-					request.mode === "navigate" ? undefined : this._strategy.fetchOptions
+					request.mode === "navigate" ? undefined : this._strategy.fetchOptions,
 				);
 
 				if ("development" !== "production") {
 					logger.debug(
 						`Network request for ` +
 							`'${getFriendlyURL(request.url)}' returned a response with ` +
-							`status '${fetchResponse.status}'.`
+							`status '${fetchResponse.status}'.`,
 					);
 				}
 
@@ -1796,7 +1796,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 					logger.log(
 						`Network request for ` +
 							`'${getFriendlyURL(request.url)}' threw an error.`,
-						error
+						error,
 					);
 				} // `originalRequest` will only exist if a `fetchDidFail` callback
 				// is being used (see above).
@@ -1864,7 +1864,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 			}
 
 			for (const callback of this.iterateCallbacks(
-				"cachedResponseWillBeUsed"
+				"cachedResponseWillBeUsed",
 			)) {
 				cachedResponse =
 					(await callback({
@@ -1914,7 +1914,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 				{
 					logger.error(
 						`Cannot cache non-existent response for ` +
-							`'${getFriendlyURL(effectiveRequest.url)}'.`
+							`'${getFriendlyURL(effectiveRequest.url)}'.`,
 					);
 				}
 
@@ -1930,7 +1930,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 					logger.debug(
 						`Response '${getFriendlyURL(effectiveRequest.url)}' ` +
 							`will not be cached.`,
-						responseToCache
+						responseToCache,
 					);
 				}
 
@@ -1948,21 +1948,21 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 						cache,
 						effectiveRequest.clone(),
 						["__WB_REVISION__"],
-						matchOptions
-				  )
+						matchOptions,
+					)
 				: null;
 
 			{
 				logger.debug(
 					`Updating the '${cacheName}' cache with a new Response ` +
-						`for ${getFriendlyURL(effectiveRequest.url)}.`
+						`for ${getFriendlyURL(effectiveRequest.url)}.`,
 				);
 			}
 
 			try {
 				await cache.put(
 					effectiveRequest,
-					hasCacheUpdateCallback ? responseToCache.clone() : responseToCache
+					hasCacheUpdateCallback ? responseToCache.clone() : responseToCache,
 				);
 			} catch (error) {
 				// See https://developer.mozilla.org/en-US/docs/Web/API/DOMException#exception-QuotaExceededError
@@ -2008,7 +2008,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 							request: effectiveRequest,
 							event: this.event,
 							params: this.params,
-						})
+						}),
 					);
 				}
 
@@ -2172,13 +2172,13 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 								logger.warn(
 									`The response for '${this.request.url}' ` +
 										`is an opaque response. The caching strategy that you're ` +
-										`using will not cache opaque responses by default.`
+										`using will not cache opaque responses by default.`,
 								);
 							} else {
 								logger.debug(
 									`The response for '${this.request.url}' ` +
 										`returned a status code of '${response.status}' and won't ` +
-										`be cached as a result.`
+										`be cached as a result.`,
 								);
 							}
 						}
@@ -2337,7 +2337,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 				responseDone,
 				handler,
 				request,
-				event
+				event,
 			); // Return an array of promises, suitable for use with Promise.all().
 
 			return [responseDone, handlerDone];
@@ -2379,7 +2379,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 					logger.log(
 						`While responding to '${getFriendlyURL(request.url)}', ` +
 							`an ${error} error occurred. Using a fallback response provided by ` +
-							`a handlerDidError plugin.`
+							`a handlerDidError plugin.`,
 					);
 				}
 			}
@@ -2586,12 +2586,12 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 						// have to check to see if it's still "in flight".
 						(await networkPromise)
 					);
-				})()
+				})(),
 			);
 
 			{
 				logger.groupCollapsed(
-					messages.strategyStart(this.constructor.name, request)
+					messages.strategyStart(this.constructor.name, request),
 				);
 
 				for (const log of logs) {
@@ -2627,7 +2627,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 					{
 						logs.push(
 							`Timing out the network response at ` +
-								`${this._networkTimeoutSeconds} seconds.`
+								`${this._networkTimeoutSeconds} seconds.`,
 						);
 					}
 
@@ -2636,7 +2636,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 
 				timeoutId = setTimeout(
 					onNetworkTimeout,
-					this._networkTimeoutSeconds * 1000
+					this._networkTimeoutSeconds * 1000,
 				);
 			});
 			return {
@@ -2675,7 +2675,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 				} else {
 					logs.push(
 						`Unable to get a response from the network. Will respond ` +
-							`with a cached response.`
+							`with a cached response.`,
 					);
 				}
 			}
@@ -2686,7 +2686,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 				{
 					if (response) {
 						logs.push(
-							`Found a cached response in the '${this.cacheName}'` + ` cache.`
+							`Found a cached response in the '${this.cacheName}'` + ` cache.`,
 						);
 					} else {
 						logs.push(`No response found in the '${this.cacheName}' cache.`);
@@ -2769,7 +2769,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 				if (!response) {
 					throw new Error(
 						`Timed out the network response after ` +
-							`${this._networkTimeoutSeconds} seconds.`
+							`${this._networkTimeoutSeconds} seconds.`,
 					);
 				}
 			} catch (err) {
@@ -2778,7 +2778,7 @@ define("./workbox-6b19f60b.js", ["exports"], function (exports) {
 
 			{
 				logger.groupCollapsed(
-					messages.strategyStart(this.constructor.name, request)
+					messages.strategyStart(this.constructor.name, request),
 				);
 
 				if (response) {

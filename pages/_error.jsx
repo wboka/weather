@@ -41,9 +41,7 @@ export function Error({ statusCode }) {
 					: "An error occurred on client"}
 			</p>
 
-			<Link href="/">
-				<a>Go back home</a>
-			</Link>
+			<Link href="/">Go back home</Link>
 		</main>
 	);
 }

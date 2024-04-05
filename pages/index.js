@@ -53,7 +53,8 @@ class Home extends React.Component {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				if (this.state.lastAPICallTime === data.lastAPICallTime) {
+				console.log(`${this.state.lastAPICallTime} >= ${data.lastAPICallTime}`);
+				if (this.state.lastAPICallTime >= data.lastAPICallTime) {
 					this.setState((state, props) => ({
 						possibleAddresses: data.addressMatches,
 						isCurrentlySearching: false,
@@ -97,7 +98,7 @@ class Home extends React.Component {
 		this.setState((state, props) => ({
 			address: event.target.value,
 			possibleAddresses: [],
-			locationTimeout: setTimeout(this.getLocations.bind(this), 250),
+			locationTimeout: setTimeout(this.getLocations.bind(this), 1000),
 		}));
 	}
 
@@ -124,10 +125,10 @@ class Home extends React.Component {
 
 											<Link
 												href={`/weather/location/${encodeURI(
-													a.matchedAddress
+													a.matchedAddress,
 												)}`}
 											>
-												<a>View Forecasts</a>
+												View Forecasts
 											</Link>
 											<button
 												type="button"
@@ -138,7 +139,7 @@ class Home extends React.Component {
 
 											<hr />
 										</li>
-								  ))
+									))
 								: null}
 						</ul>
 					</div>
@@ -199,10 +200,10 @@ class Home extends React.Component {
 
 												<Link
 													href={`/weather/location/${encodeURI(
-														a.matchedAddress
+														a.matchedAddress,
 													)}`}
 												>
-													<a>View Forecasts</a>
+													View Forecasts
 												</Link>
 												<button
 													type="button"
@@ -213,7 +214,7 @@ class Home extends React.Component {
 
 												<hr />
 											</li>
-									  ))
+										))
 									: null}
 							</ul>
 						</div>
